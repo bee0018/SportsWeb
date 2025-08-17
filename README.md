@@ -15,11 +15,11 @@
       	- WinUI application development
 - Navigate to the SportsWebApi directory in your terminal and enter the following command to install nswag dependencies:
     ```
-        dotnet tool install --global NSwag.ConsoleCore
+    dotnet tool install --global NSwag.ConsoleCore
     ```
 - Run the following command to ensure nswag has been installed successfully:
 	```
-		nswag --version
+	nswag --version
 	```
 
 ## Running the Front End
