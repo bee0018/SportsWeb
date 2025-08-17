@@ -30,7 +30,7 @@
   - To do so, we will use NSwag Swagger Generation to build our objects (requests, responses, etc.) in our SportsWebAPI and output them to our `API/SportsWebApi.ts` file so we can use them in our web application.
   - To make updates to objects, all we need to do is update them in our backend web API and build the web API. Once the web api finishes building, all we need to do is refresh our sports-web app to pickup changes.
 
-## Documentation
+## Extra Documentation
 - For the video I used to help start this project: https://www.youtube.com/watch?v=dFIfZBEyZ90&t=1209s
 - For setting up the endpoints and basis for talking to frontend to backend: https://fast-endpoints.com/docs/get-started
 - For making the endpoints secure: https://fast-endpoints.com/docs/security#introduction.
