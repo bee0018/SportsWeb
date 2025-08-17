@@ -1,5 +1,5 @@
 {
-  "runtime": "Net90",
+  "runtime": "Net80",
   "defaultVariables": null,
   "documentGenerator": {
     "aspNetCoreToOpenApi": {
@@ -14,7 +14,7 @@
       "verbose": true,
       "workingDirectory": null,
       "aspNetCoreEnvironment": null,
-      "output": "swagger.json",
+      "output": "SportsWebOpenApi.json",
       "newLineBehavior": "Auto"
     }
   },
