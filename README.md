@@ -27,7 +27,7 @@
 
 ## Developer Information
 - We want to be able to have our typescript to be able to automatically know what the requests/responses look like for web app so it'll be easier to send requests and receive responses.
-  - To do so, we will use NSwag Swagger Generation to build our objects (requests, responses, etc.) in our SportsWebAPI and output them to our `SportsWebApi.ts` file so we can use them in our web application.
+  - To do so, we will use NSwag Swagger Generation to build our objects (requests, responses, etc.) in our SportsWebAPI and output them to our `API/SportsWebApi.ts` file so we can use them in our web application.
   - To make updates to objects, all we need to do is update them in our backend web API and build the web API. Once the web api finishes building, all we need to do is refresh our sports-web app to pickup changes.
 
 ## Documentation
