@@ -5,7 +5,7 @@ import {Client} from "./API/SportsWebApiClient";
 
 async function fetchTodo() {
     const sportsWebApiClient = new Client()
-    const response = await sportsWebApiClient.sportsWebAPIEndPointsTodoEndPoint(123, false)
+    const response = await sportsWebApiClient.sportsWebAPIEndPointsTodoEndPoint(123, true)
     console.log(response)
 }
 

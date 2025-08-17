@@ -10,5 +10,6 @@ builder.Services
 WebApplication app = builder.Build();
 app.UseFastEndpoints()
     .UseCors(i => i.AllowAnyOrigin())
+    .UseHttpsRedirection()
     .UseSwaggerGen();
 app.Run();
