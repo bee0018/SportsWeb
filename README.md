@@ -25,3 +25,4 @@
 ## Documentation
 - For the video I used to help start this project: https://www.youtube.com/watch?v=dFIfZBEyZ90&t=1209s
 - For setting up the endpoints and basis for talking to frontend to backend: https://fast-endpoints.com/docs/get-started
+- For making the endpoints secure: https://fast-endpoints.com/docs/security#introduction. At this point this has not been implemented but will need to be done.
