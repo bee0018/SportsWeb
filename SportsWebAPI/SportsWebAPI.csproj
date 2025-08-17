@@ -28,7 +28,6 @@
 	<Target Name="GenerateOpenApiClients" AfterTargets="Build">
 		<Message Text="Running NSwag to generate clients..." Importance="high" />
 		<Exec Command="$(NSwagExe_Net80) run nswag.json" />
-		<Exec Command="npx swagger-typescript-api generate -p ./SportsWebOpenApi.json -o ../sports-web-app/src/API --name SportsWebApiClient.ts" />
 	</Target>
 
 </Project>

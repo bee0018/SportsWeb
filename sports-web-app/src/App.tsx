@@ -1,17 +1,12 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {Api} from "./API/SportsWebApiClient";
+import {Client} from "./API/SportsWebApiClient";
 
 async function fetchTodo() {
-    // const result = await fetch("https://localhost:44369/todo?id=4&scream=true")
-    // const data = await result.json();
-    // console.log(data);
-
-    const api = new Api();
-    const response = await api.todo.sportsWebApiEndPointsTodoEndPoint({id: 123, scream: true})
-    const data = response.data;
-    console.log(data)
+    const sportsWebApiClient = new Client()
+    const response = await sportsWebApiClient.sportsWebAPIEndPointsTodoEndPoint(123, false)
+    console.log(response)
 }
 
 function App() {
