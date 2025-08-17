@@ -21,10 +21,6 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
 	<Target Name="GenerateOpenApiClients" AfterTargets="Build">
 		<Message Text="Running NSwag to generate clients..." Importance="high" />
 		<Exec Command="$(NSwagExe_Net80) run nswag.json" />
