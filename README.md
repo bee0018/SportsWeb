@@ -6,7 +6,7 @@
 - Download [WebStorm](https://www.jetbrains.com/webstorm/promo/?source=google&medium=cpc&campaign=AMER_en_US-CST_WebStorm_Branded&term=webstorm&content=717267885243&gad_source=1&gad_campaignid=9641686287&gbraid=0AAAAADloJzjM8YwGuomM1PAAElS0TYUtX&gclid=Cj0KCQjw2IDFBhDCARIsABDKOJ6ZAX4ejAlVLQhNXvOmGcZ6rUg8tSvULOMdTD4DFZLUPnMA5E5bJkIaAmStEALw_wcB). Suggested that you use the non-commercial version for the time being.
 - Download the [.NET8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) SDK. This will be used for running the backend and other dependencies such as the runtime environment.
 - Download IDE for C# development. Preferred is [Visual Studio](https://visualstudio.microsoft.com/vs/professional/) or [Rider](https://www.jetbrains.com/rider/download/?section=windows).
-	- Make sure to install the workloads for:
+	- If using Visual Studio, make sure to install the workloads for:
  		- ASP.NET and web development
    		- Azure development
      	- .NET Multi-platform App UI development
