@@ -1,0 +1,6 @@
+@SportsWebAPI_HostAddress = http://localhost:5110
+
+GET {{SportsWebAPI_HostAddress}}/
+Accept: application/json
+
+###
