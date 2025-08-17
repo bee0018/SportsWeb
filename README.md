@@ -1,4 +1,4 @@
-# SportsWeb
+# Sports Web Application
 
 ## Dev Setup
 - For version control download [SourceTree](https://www.sourcetreeapp.com/) for preferred OS
