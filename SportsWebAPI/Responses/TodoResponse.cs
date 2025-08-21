@@ -5,6 +5,10 @@
     /// </summary>
     public class TodoResponse
     {
+        public TodoResponse()
+        {
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="TodoResponse"/> class.
         /// </summary>

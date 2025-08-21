@@ -2,20 +2,8 @@
   "runtime": "Net80",
   "defaultVariables": null,
   "documentGenerator": {
-    "aspNetCoreToOpenApi": {
-      "project": "SportsWebAPI.csproj",
-      "documentName": "v1",
-      "msBuildProjectExtensionsPath": null,
-      "configuration": null,
-      "runtime": null,
-      "targetFramework": null,
-      "noBuild": true,
-      "msBuildOutputPath": null,
-      "verbose": true,
-      "workingDirectory": null,
-      "aspNetCoreEnvironment": null,
-      "output": "SportsWebOpenApi.json",
-      "newLineBehavior": "Auto"
+    "fromDocument": {
+      "json": "SportsWebOpenApi.json"
     }
   },
   "codeGenerators": {
@@ -74,7 +62,7 @@
       "inlineNamedAny": false,
       "includeHttpContext": false,
       "templateDirectory": null,
-      "serviceHost": "https://localhost:44369",
+      "serviceHost": "localhost:44369",
       "serviceSchemes": null,
       "output": "../sports-web-app/src/API/SportsWebApiClient.ts",
       "newLineBehavior": "Auto"

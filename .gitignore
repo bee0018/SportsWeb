@@ -3,3 +3,5 @@ SportsWebAPI/.vs/
 SportsWebAPI/obj/
 SportsWebAPI/bin/
 SportsWebAPI/SportsWebOpenApi.json
+sports-web-app/node_modules/
+sports-web-app/build/

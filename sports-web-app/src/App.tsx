@@ -1,11 +1,11 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {Client} from "./API/SportsWebApiClient";
+import {ProductsClient} from "./API/SportsWebApiClient";
 
 async function fetchTodo() {
-    const sportsWebApiClient = new Client()
-    const response = await sportsWebApiClient.sportsWebAPIEndPointsTodoEndPoint(123, true)
+    const client = new ProductsClient()
+    const response = await client.getProducts()
     console.log(response)
 }
 
