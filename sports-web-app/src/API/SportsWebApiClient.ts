@@ -7,7 +7,7 @@
 /* eslint-disable */
 // ReSharper disable InconsistentNaming
 
-export class Client {
+export class ProductsClient {
     private http: { fetch(url: RequestInfo, init?: RequestInit): Promise<Response> };
     private baseUrl: string;
     protected jsonParseReviver: ((key: string, value: any) => any) | undefined = undefined;
@@ -17,19 +17,8 @@ export class Client {
         this.baseUrl = baseUrl ?? "https://localhost:44369";
     }
 
-    /**
-     * @return Success
-     */
-    sportsWebAPIEndPointsTodoEndPoint(id: number, scream: boolean): Promise<SportsWebAPIResponsesTodoResponse> {
-        let url_ = this.baseUrl + "/todo?";
-        if (id === undefined || id === null)
-            throw new globalThis.Error("The parameter 'id' must be defined and cannot be null.");
-        else
-            url_ += "id=" + encodeURIComponent("" + id) + "&";
-        if (scream === undefined || scream === null)
-            throw new globalThis.Error("The parameter 'scream' must be defined and cannot be null.");
-        else
-            url_ += "scream=" + encodeURIComponent("" + scream) + "&";
+    getProducts(): Promise<TodoResponse> {
+        let url_ = this.baseUrl + "/api/Products";
         url_ = url_.replace(/[?&]$/, "");
 
         let options_: RequestInit = {
@@ -40,18 +29,18 @@ export class Client {
         };
 
         return this.http.fetch(url_, options_).then((_response: Response) => {
-            return this.processSportsWebAPIEndPointsTodoEndPoint(_response);
+            return this.processGetProducts(_response);
         });
     }
 
-    protected processSportsWebAPIEndPointsTodoEndPoint(response: Response): Promise<SportsWebAPIResponsesTodoResponse> {
+    protected processGetProducts(response: Response): Promise<TodoResponse> {
         const status = response.status;
         let _headers: any = {}; if (response.headers && response.headers.forEach) { response.headers.forEach((v: any, k: any) => _headers[k] = v); };
         if (status === 200) {
             return response.text().then((_responseText) => {
             let result200: any = null;
             let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = SportsWebAPIResponsesTodoResponse.fromJS(resultData200);
+            result200 = TodoResponse.fromJS(resultData200);
             return result200;
             });
         } else if (status !== 200 && status !== 204) {
@@ -59,15 +48,92 @@ export class Client {
             return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             });
         }
-        return Promise.resolve<SportsWebAPIResponsesTodoResponse>(null as any);
+        return Promise.resolve<TodoResponse>(null as any);
+    }
+
+    addProduct(value: string): Promise<string> {
+        let url_ = this.baseUrl + "/api/Products";
+        url_ = url_.replace(/[?&]$/, "");
+
+        const content_ = JSON.stringify(value);
+
+        let options_: RequestInit = {
+            body: content_,
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            }
+        };
+
+        return this.http.fetch(url_, options_).then((_response: Response) => {
+            return this.processAddProduct(_response);
+        });
+    }
+
+    protected processAddProduct(response: Response): Promise<string> {
+        const status = response.status;
+        let _headers: any = {}; if (response.headers && response.headers.forEach) { response.headers.forEach((v: any, k: any) => _headers[k] = v); };
+        if (status === 200) {
+            return response.text().then((_responseText) => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = resultData200 !== undefined ? resultData200 : null as any;
+    
+            return result200;
+            });
+        } else if (status !== 200 && status !== 204) {
+            return response.text().then((_responseText) => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            });
+        }
+        return Promise.resolve<string>(null as any);
+    }
+
+    getProductsById(id: number): Promise<string> {
+        let url_ = this.baseUrl + "/api/Products/{id}";
+        if (id === undefined || id === null)
+            throw new globalThis.Error("The parameter 'id' must be defined.");
+        url_ = url_.replace("{id}", encodeURIComponent("" + id));
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_: RequestInit = {
+            method: "GET",
+            headers: {
+                "Accept": "application/json"
+            }
+        };
+
+        return this.http.fetch(url_, options_).then((_response: Response) => {
+            return this.processGetProductsById(_response);
+        });
+    }
+
+    protected processGetProductsById(response: Response): Promise<string> {
+        const status = response.status;
+        let _headers: any = {}; if (response.headers && response.headers.forEach) { response.headers.forEach((v: any, k: any) => _headers[k] = v); };
+        if (status === 200) {
+            return response.text().then((_responseText) => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = resultData200 !== undefined ? resultData200 : null as any;
+    
+            return result200;
+            });
+        } else if (status !== 200 && status !== 204) {
+            return response.text().then((_responseText) => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            });
+        }
+        return Promise.resolve<string>(null as any);
     }
 }
 
-export class SportsWebAPIResponsesTodoResponse implements ISportsWebAPIResponsesTodoResponse {
+export class TodoResponse implements ITodoResponse {
     todo?: string;
     isDone?: boolean;
 
-    constructor(data?: ISportsWebAPIResponsesTodoResponse) {
+    constructor(data?: ITodoResponse) {
         if (data) {
             for (var property in data) {
                 if (data.hasOwnProperty(property))
@@ -83,9 +149,9 @@ export class SportsWebAPIResponsesTodoResponse implements ISportsWebAPIResponses
         }
     }
 
-    static fromJS(data: any): SportsWebAPIResponsesTodoResponse {
+    static fromJS(data: any): TodoResponse {
         data = typeof data === 'object' ? data : {};
-        let result = new SportsWebAPIResponsesTodoResponse();
+        let result = new TodoResponse();
         result.init(data);
         return result;
     }
@@ -98,39 +164,9 @@ export class SportsWebAPIResponsesTodoResponse implements ISportsWebAPIResponses
     }
 }
 
-export interface ISportsWebAPIResponsesTodoResponse {
+export interface ITodoResponse {
     todo?: string;
     isDone?: boolean;
-}
-
-export class SportsWebAPIRequestsTodoRequest implements ISportsWebAPIRequestsTodoRequest {
-
-    constructor(data?: ISportsWebAPIRequestsTodoRequest) {
-        if (data) {
-            for (var property in data) {
-                if (data.hasOwnProperty(property))
-                    (this as any)[property] = (data as any)[property];
-            }
-        }
-    }
-
-    init(_data?: any) {
-    }
-
-    static fromJS(data: any): SportsWebAPIRequestsTodoRequest {
-        data = typeof data === 'object' ? data : {};
-        let result = new SportsWebAPIRequestsTodoRequest();
-        result.init(data);
-        return result;
-    }
-
-    toJSON(data?: any) {
-        data = typeof data === 'object' ? data : {};
-        return data;
-    }
-}
-
-export interface ISportsWebAPIRequestsTodoRequest {
 }
 
 export class ApiException extends Error {

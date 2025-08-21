@@ -1,15 +1,28 @@
-using FastEndpoints;
-using FastEndpoints.Swagger;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder();
-builder.Services
-    .AddFastEndpoints()
-    .AddCors()
-    .SwaggerDocument();
+builder.Services.AddControllers();
+builder.Services.AddCors()
+    .AddEndpointsApiExplorer()
+    .AddOpenApiDocument(config =>
+    {
+        config.Title = "Sports Web API";
+        config.Version = "v1";
+    });
 
 WebApplication app = builder.Build();
-app.UseFastEndpoints()
-    .UseCors(i => i.AllowAnyOrigin())
-    .UseHttpsRedirection()
-    .UseSwaggerGen();
+app.UseCors(i => i.AllowAnyOrigin())
+    .UseAuthorization()
+    .UseOpenApi()
+    .UseRouting()
+    .UseStaticFiles()
+    .UseDefaultFiles()
+    .UseHsts()
+    .UseHttpsRedirection();
+app.MapControllers();
+if (app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage()
+        .UseSwaggerUi();
+}
+
 app.Run();

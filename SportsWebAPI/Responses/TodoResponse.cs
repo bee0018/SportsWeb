@@ -1,10 +1,14 @@
 ﻿namespace SportsWebAPI.Responses
 {
     /// <summary>
-    /// Class representing the basis for a todo respnose.
+    /// Class representing the basis for a todo response.
     /// </summary>
     public class TodoResponse
     {
+        public TodoResponse()
+        {
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="TodoResponse"/> class.
         /// </summary>
